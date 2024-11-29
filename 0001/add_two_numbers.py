@@ -19,12 +19,14 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
 
     while current:
         num1 *= 10 + current.val
+        current = current.next
 
     # Second Pass - Extract second number
     current = reversed_second_list
 
     while current:
         num2 *= 10 + current.val
+        current = current.next
 
     total = num1 + num2
 
