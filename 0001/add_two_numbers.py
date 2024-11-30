@@ -8,6 +8,7 @@ class ListNode:
         self.next = next
 
 def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+
     reversed_first_list = reverse_linked_list(l1)
     reversed_second_list = reverse_linked_list(l2)
 
@@ -18,14 +19,14 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     current = reversed_first_list
 
     while current:
-        num1 *= 10 + current.val
+        num1 = (num1 * 10) + int(current.val)
         current = current.next
 
     # Second Pass - Extract second number
     current = reversed_second_list
 
     while current:
-        num2 *= 10 + current.val
+        num2 = (num2 * 10) + int(current.val)
         current = current.next
 
     total = num1 + num2
@@ -34,7 +35,7 @@ def add_two_numbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[
     tail = result
 
     for char in str(total):
-        tail.next = char
+        tail.next = ListNode(int(char))
         tail = tail.next
 
     return reverse_linked_list(result.next)
