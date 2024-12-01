@@ -2,7 +2,7 @@
 
 # https://www.youtube.com/watch?v=n4zCTMh03_M&ab_channel=CodingNinja
 # O(n) - Sliding window and hash set
-def length_of_longest_substring_1(original_string: str) -> int:
+def length_of_longest_substring(original_string: str) -> int:
     left_pointer = max_length = 0
 
     character_set = set()
