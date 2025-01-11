@@ -50,6 +50,7 @@ class MyLinkedList:
             self.tail = node
 
         self.__length += 1
+
         print('addAtTail complete...')
         print(f'Length: {self.__length}')
         self.print()
@@ -75,6 +76,7 @@ class MyLinkedList:
 
             self.__length += 1
 
+        print('addAtIndex complete...')
         print(f'Length: {self.__length}')
         self.print()
 
@@ -96,6 +98,7 @@ class MyLinkedList:
             current_node.next.prev = current_node.prev
         self.__length -= 1
 
+        print('deleteAtIndex complete...')
         print(f'Length: {self.__length}')
         self.print()
 
