@@ -19,7 +19,7 @@ class MyLinkedList:
 
         return current_node.val
 
-    def addAtHead(self, val: int) -> None:
+    def add_at_head(self, val: int) -> None:
         node = Node(val)
         if not self.head:
             self.head = node
@@ -37,7 +37,7 @@ class MyLinkedList:
         print(f'Length: {self.__length}')
         self.print()
 
-    def addAtTail(self, val: int) -> None:
+    def add_at_tail(self, val: int) -> None:
         node = Node(val)
         if not self.tail:
             self.tail = node
@@ -54,13 +54,13 @@ class MyLinkedList:
         print(f'Length: {self.__length}')
         self.print()
 
-    def addAtIndex(self, index: int, val: int) -> None:
+    def add_at_index(self, index: int, val: int) -> None:
         if index > self.__length or index < 0:
             return
         elif index == self.__length:
-            self.addAtTail(val)
+            self.add_at_tail(val)
         elif index == 0:
-            self.addAtHead(val)
+            self.add_at_head(val)
         else:
             node = Node(val)
             current_node = self.head
@@ -76,9 +76,9 @@ class MyLinkedList:
             self.__length += 1
 
         print(f'Length: {self.__length}')
-        self.print('addAtIndex complete...')
+        self.print()
 
-    def deleteAtIndex(self, index: int) -> None:
+    def delete_at_index(self, index: int) -> None:
         if index > self.__length or index < 0:
             return
         elif index == self.__length - 1:
