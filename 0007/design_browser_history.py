@@ -12,6 +12,7 @@ class BrowserHistory:
 
     def back(self, steps: int) -> str:
         if steps >= self.current_page.index:
+            self.current_page = self.home_page
             return self.home_page.url
         for i in range(steps):
             self.current_page = self.current_page.prev
