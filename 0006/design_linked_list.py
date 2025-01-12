@@ -33,10 +33,6 @@ class MyLinkedList:
 
         self.__length += 1
 
-        print('addAtHead complete...')
-        print(f'Length: {self.__length}')
-        self.print()
-
     def add_at_tail(self, val: int) -> None:
         node = Node(val)
         if not self.tail:
@@ -49,19 +45,18 @@ class MyLinkedList:
             self.tail.next = node
             self.tail = node
 
-        self.__length += 1
+            if not self.head and self.__length == 1:
+                self.head = self.tail.prev
 
-        print('addAtTail complete...')
-        print(f'Length: {self.__length}')
-        self.print()
+        self.__length += 1
 
     def add_at_index(self, index: int, val: int) -> None:
         if index > self.__length or index < 0:
             return
-        elif index == self.__length:
-            self.add_at_tail(val)
         elif index == 0:
             self.add_at_head(val)
+        elif index == self.__length:
+            self.add_at_tail(val)
         else:
             node = Node(val)
             current_node = self.head
@@ -76,19 +71,17 @@ class MyLinkedList:
 
             self.__length += 1
 
-        print('addAtIndex complete...')
-        print(f'Length: {self.__length}')
-        self.print()
-
     def delete_at_index(self, index: int) -> None:
-        if index > self.__length or index < 0:
+        if index >= self.__length or index < 0:
             return
+        elif index == 0:
+            if self.head:
+                self.head = self.head.next
+            else:
+                self.tail = None
         elif index == self.__length - 1:
             self.tail = self.tail.prev
             self.tail.next = None
-        elif index == 0:
-            self.head = self.head.next
-            self.head.prev = None
         else:
             current_node = self.head
             for i in range(index):
@@ -97,10 +90,6 @@ class MyLinkedList:
             current_node.prev.next = current_node.next
             current_node.next.prev = current_node.prev
         self.__length -= 1
-
-        print('deleteAtIndex complete...')
-        print(f'Length: {self.__length}')
-        self.print()
 
     def print(self) -> None:
         curr = self.head
