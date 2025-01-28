@@ -1,4 +1,13 @@
 // https://leetcode.com/problems/count-unguarded-cells-in-the-grid/description/
+// Both solutions visit the same number of cells, so their theoretical time complexity is identical.
+// But Solution 2 (this one) is slightly more efficient because:
+// ✅ It eliminates redundant loop setup.
+// ✅ It uses structured iteration over a list, making it easier to extend.
+// ✅ It reduces instruction execution overhead slightly.
+// ✅ It’s more cache-friendly.
+//
+// 🔹 Verdict: The speedup is small but measurable for large grids.
+// If the grid size is huge, Solution 2 will outperform due to less redundant processing.
 import 'dart:collection';
 
 class Solution {
