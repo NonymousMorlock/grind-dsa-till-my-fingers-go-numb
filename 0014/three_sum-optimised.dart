@@ -23,7 +23,7 @@ class Solution {
                 final threeSum = [nums[firstPointer], nums[secondPointer], nums[thirdPointer]];
                 result.add(threeSum);
                 secondPointer++;
-                while(secondPointer < nums.length && nums[secondPointer] == nums[secondPointer - 1]) {
+                while(secondPointer < thirdPointer && nums[secondPointer] == nums[secondPointer - 1]) {
                     secondPointer++;
                 }
             }
